@@ -17,7 +17,7 @@ const About = () => {
 
   return (
     <>
-      <h2 className="head-text" style={{ marginTop: 62 }}>
+      <h2 className="head-text">
         I Know That <span>Hard Work</span> means <span>Better Performance</span>
       </h2>
 

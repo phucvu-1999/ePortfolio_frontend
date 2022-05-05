@@ -1,19 +1,27 @@
 import React from "react";
-import { BsLinkedin, BsInstagram, BsTwitter } from "react-icons/bs";
-import { FaFacebookF, FaGithub } from "react-icons/fa";
+import { BsLinkedin, BsInstagram } from "react-icons/bs";
+import { FaGithub } from "react-icons/fa";
 
 const SocialMedia = () => {
   return (
     <div className="app__social app__social-icon">
-      <div>
+      <a href="https://github.com/phucvu-1999" target="_blank" rel="noreferrer">
         <FaGithub />
-      </div>
-      <div>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/tienphuc-dev/"
+        target="_blank"
+        rel="noreferrer"
+      >
         <BsLinkedin />
-      </div>
-      <div>
+      </a>
+      <a
+        href="https://www.instagram.com/hi_im_tien.phuc/"
+        target="_blank"
+        rel="noreferrer"
+      >
         <BsInstagram />
-      </div>
+      </a>
     </div>
   );
 };
