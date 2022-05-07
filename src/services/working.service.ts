@@ -1,4 +1,4 @@
-import { client, urlFor } from "../client";
+import { client } from "../client";
 import { WorksModel } from "../models/works";
 
 class WorkService {

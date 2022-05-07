@@ -3,7 +3,7 @@ import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
 
 import { AppWrap } from "../../wrapper";
-import { urlFor, client } from "../../client";
+import { urlFor } from "../../client";
 import { AnimateCard } from "../../models/animate";
 import workingService from "../../services/working.service";
 import { WorksModel } from "../../models/works";
@@ -65,7 +65,7 @@ const Works = () => {
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="app__work-portfolio"
       >
-        {filterWork.map((work, index) => (
+        {filterWork?.map((work, index) => (
           <div className="app__work-item app__flex" key={index}>
             <div className="app__work-img app__flex">
               <img
