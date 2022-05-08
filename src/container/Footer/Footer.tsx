@@ -4,13 +4,14 @@ import { images } from "../../constants";
 import { AppWrap, MotionWrap } from "../../wrapper";
 import { client } from "../../client";
 import { APP_TOKEN } from "../../constants";
+import { validateForm, validateEmail } from "../../helpers";
 import "./Footer.scss";
 
 const Footer = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
+    name: { value: "", error: "" },
+    email: { value: "", error: "" },
+    message: { value: "", error: "" },
   });
   const [loading, setLoading] = useState(false);
   const [isFormSubmitted, setIsFormSubmited] = useState(true);
@@ -22,23 +23,33 @@ const Footer = () => {
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
   ) => {
-    const nameKey = e.target.name;
-    const nameValue = e.target.value;
+    const inputName = e.target.name;
+    const inputValue = e.target.value;
+    const error = validateForm({ name: inputName, value: inputValue });
     setFormData({
       ...formData,
-      [nameKey]: nameValue,
+      [inputName]: { value: inputValue, error },
     });
   };
 
   const handleSubmit = () => {
+    if (!validateEmail(email.value))
+      setFormData({
+        ...formData,
+        email: {
+          value: email.value,
+          error: "Invalid email address !",
+        },
+      });
+
     const contact = {
       _type: "contact",
-      name,
-      email,
-      message,
+      name: name.value,
+      email: email.value,
+      message: message.value,
     };
 
-    if (!name || !email || !message) return;
+    if (!name.value || !email.value || !message.value) return;
 
     setLoading(true);
 
@@ -73,33 +84,36 @@ const Footer = () => {
 
       {isFormSubmitted ? (
         <div className="app__footer-form app__flex">
+          <p className="p-text p-danger">{formData?.name?.error}</p>
           <div className="app__flex">
             <input
               className="p-text"
               placeholder="Your name"
               name="name"
-              value={name}
+              value={name?.value}
               onChange={handleInputChange}
             />
           </div>
 
+          <p className="p-text p-danger">{formData?.email?.error}</p>
           <div className="app__flex">
             <input
               className="p-text"
               placeholder="Your email"
               name="email"
-              value={email}
+              value={email?.value}
               type="email"
               onChange={handleInputChange}
             />
           </div>
 
+          <p className="p-text p-danger">{formData?.message?.error}</p>
           <div>
             <textarea
               className="p-text"
               placeholder="Your message"
               name="message"
-              value={message}
+              value={message?.value}
               onChange={handleInputChange}
             />
           </div>
