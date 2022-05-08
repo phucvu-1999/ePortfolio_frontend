@@ -33,7 +33,7 @@ const Footer = () => {
   };
 
   const handleSubmit = () => {
-    if (!validateEmail(email.value))
+    if (!validateEmail(email.value)) {
       setFormData({
         ...formData,
         email: {
@@ -41,6 +41,9 @@ const Footer = () => {
           error: "Invalid email address !",
         },
       });
+
+      return;
+    }
 
     const contact = {
       _type: "contact",
