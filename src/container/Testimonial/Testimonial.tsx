@@ -32,8 +32,6 @@ const Testimonial = () => {
     setCurrentIndex(current);
   };
 
-  console.log("current index: ", currentIndex);
-
   return (
     <>
       <h2 className="head-text app__testimonial-margin">
