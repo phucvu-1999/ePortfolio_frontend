@@ -10,7 +10,7 @@ const NavigationDot = (props: Props) => {
 
   return (
     <div className="app__navigation">
-      {["home", "about", "work", "skill", "testimonial", "contact"].map(
+      {["home", "about", "work", "skills", "testimonial", "contact"].map(
         (item, index) => (
           <a
             className="app__navigation-dot"

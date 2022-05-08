@@ -3,9 +3,10 @@ import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
 
 import { AppWrap } from "../../wrapper";
+import { MotionWrap } from "../../wrapper";
 import { urlFor } from "../../client";
 import { AnimateCard } from "../../models/animate";
-import workingService from "../../services/working.service";
+import GetServiceService from "../../services/GetService.service";
 import { WorksModel } from "../../models/works";
 import "./Works.scss";
 
@@ -21,7 +22,7 @@ const Works = () => {
   useEffect(() => {
     const query = `*[_type == "works"]`;
 
-    workingService.getWorks(query).then((data) => {
+    GetServiceService.getWorks(query).then((data) => {
       setWorks(data);
       setFilterWork(data);
     });
@@ -127,4 +128,8 @@ const Works = () => {
   );
 };
 
-export default AppWrap(Works, "work");
+export default AppWrap(
+  MotionWrap(Works, "app__works"),
+  "work",
+  "app__primarybg"
+);

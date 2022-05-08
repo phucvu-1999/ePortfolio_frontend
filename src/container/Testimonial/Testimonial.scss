@@ -1,0 +1,152 @@
+.app__testimonial {
+  flex: 1;
+  width: 100%;
+  flex-direction: column;
+
+  &-margin {
+    margin: 6rem 0;
+  }
+
+  &-item {
+    width: 60%;
+    min-height: 32rem;
+    background-color: var(--white-color);
+    display: flex;
+    padding: 3rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
+
+    transition: all 0.3s linear;
+
+    img {
+      width: 10rem;
+      height: 10rem;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    @media screen and (min-width: 2000px) {
+      min-height: 45rem;
+
+      img {
+        width: 15rem;
+        height: 15rem;
+      }
+    }
+
+    @media screen and (max-width: 850px) {
+      width: 100%;
+    }
+
+    @media screen and (max-width: 600px) {
+      flex-direction: column;
+    }
+  }
+
+  &-btns {
+    flex-direction: row;
+    margin-top: 2rem;
+
+    div {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      background-color: var(--white-color);
+      margin: 2rem;
+      transition: all 0.3s ease-in-out;
+
+      svg {
+        width: 2rem;
+        height: 2rem;
+        color: var(--secondary-color);
+      }
+
+      &:hover {
+        background-color: var(--secondary-color);
+
+        svg {
+          color: var(--white-color);
+        }
+      }
+    }
+  }
+
+  &-content {
+    flex: 1;
+    height: 100%;
+
+    padding: 0 3rem;
+    text-align: left;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+
+    div {
+      align-self: flex-end;
+    }
+
+    p {
+      font-size: 2.5rem;
+      font-weight: 300;
+      line-height: 3rem;
+      color: var(--black-color);
+      font-style: italic;
+      font-family: var(--font-base);
+    }
+
+    h4 {
+      font-weight: 700;
+      color: var(--secondary-color);
+      margin-top: 3rem;
+      font-size: 2.5rem;
+    }
+
+    h5 {
+      font-weight: 500;
+      color: var(--gray-color);
+      font-size: 2.5rem;
+    }
+  }
+
+  &-brands {
+    width: 80%;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+
+    div {
+      width: 15rem;
+      margin: 2rem;
+      transition: all 0.3s linear;
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        filter: grayscale(1);
+        transition: all 0.3s linear;
+      }
+
+      &:hover {
+        img {
+          filter: grayscale(0);
+        }
+      }
+
+      @media screen and (min-width: 2000px) {
+        width: 21rem;
+        margin: 3rem;
+      }
+
+      @media screen and (min-width: 450px) {
+        width: 12rem;
+        margin: 2rem;
+      }
+    }
+
+    @media screen and (min-width: 800px) {
+      width: 800px;
+    }
+  }
+}

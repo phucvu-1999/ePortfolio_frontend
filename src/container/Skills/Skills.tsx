@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import ReactTooltip from "react-tooltip";
 import { motion } from "framer-motion";
 
-import { AppWrap } from "../../wrapper";
+import { AppWrap, MotionWrap } from "../../wrapper";
 import { urlFor } from "../../client";
-import SkillsService from "../../services/skills.service";
+import GetServiceService from "../../services/GetService.service";
 import { SkillsModel } from "../../models/skills";
 import { ExperiencesModel } from "../../models/experiences";
 import "./Skills.scss";
@@ -17,8 +17,8 @@ const Skills = () => {
     const skillsQuery = `*[_type == "skills"]`;
     const experiencesQuery = `*[_type == "experiences"]`;
 
-    SkillsService.getSkills(skillsQuery).then((data) => setSkills(data));
-    SkillsService.getExpericens(experiencesQuery).then((data) => {
+    GetServiceService.getSkills(skillsQuery).then((data) => setSkills(data));
+    GetServiceService.getExpericens(experiencesQuery).then((data) => {
       setExperiences(data);
     });
   }, []);
@@ -73,7 +73,8 @@ const Skills = () => {
                     <ReactTooltip
                       id={work.name}
                       effect="solid"
-                      arrowColor="#000"
+                      arrowColor="#fff"
+                      disable
                       clickable
                       className="skills-tooltip"
                     >
@@ -84,34 +85,14 @@ const Skills = () => {
               </motion.div>
             </motion.div>
           ))}
-          {/* {experiences[0]?.works?.map((work) => (
-            <>
-              <motion.div
-                whileInView={{ opacity: [0, 1] }}
-                transition={{ duration: 0.5 }}
-                className="app__skills-exp-work"
-                data-tip
-                data-for={work.name}
-                key={work.name}
-              >
-                <h4 className="bold-text">{work.name}</h4>
-                <p className="p-text">{work.company}</p>
-              </motion.div>
-
-              <ReactTooltip
-                id={work.name}
-                effect="solid"
-                arrowColor="#fff"
-                className="skills-tooltip"
-              >
-                {work.description}
-              </ReactTooltip>
-            </>
-          ))} */}
         </motion.div>
       </div>
     </>
   );
 };
 
-export default Skills;
+export default AppWrap(
+  MotionWrap(Skills, "app__skills"),
+  "skills",
+  "app__whitebg"
+);

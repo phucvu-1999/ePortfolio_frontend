@@ -2,6 +2,11 @@
   flex: 1;
   width: 100%;
   flex-direction: column;
+  margin-top: 9rem;
+
+  @media screen and (max-width: 900px) {
+    margin-top: 0;
+  }
 }
 
 .app__work {
