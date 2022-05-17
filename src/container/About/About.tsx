@@ -9,6 +9,7 @@ import { Abouts } from "../../models";
 
 const About = () => {
   const [testAbouts, setTestAbout] = useState<Abouts[]>([]);
+  console.log("Welcome to my profile");
 
   useEffect(() => {
     const query = `*[_type == "abouts"]`;
