@@ -60,15 +60,13 @@ const Header = () => {
         whileInView={scaleVariants.whileInView}
         className="app__header-circles"
       >
-        {[images.javascript, images.redux, images.react].map(
-          (circle, index) => {
-            return (
-              <div className="circle-cmp app__flex" key={`circle-${index}`}>
-                <img src={circle} alt="circle" />
-              </div>
-            );
-          }
-        )}
+        {[images.javascript, images.net, images.wpf].map((circle, index) => {
+          return (
+            <div className="circle-cmp app__flex" key={`circle-${index}`}>
+              <img src={circle} alt="circle" />
+            </div>
+          );
+        })}
       </motion.div>
     </div>
   );

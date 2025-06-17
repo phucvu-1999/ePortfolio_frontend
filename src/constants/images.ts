@@ -37,6 +37,8 @@ import bolt from "../assets/bolt.png";
 import nb from "../assets/nb.png";
 import skype from "../assets/skype.png";
 import spotify from "../assets/spotify.png";
+import net from "../assets/net_log.png";
+import wpf from "../assets/wpf.png";
 
 export default {
   email,
@@ -75,4 +77,6 @@ export default {
   nextjs,
   antd,
   avatar,
+  net,
+  wpf,
 };
